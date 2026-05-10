@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SistemaExpedientesV2.Models.PromedioAlumno>
+
+<h1>Promedio por Alumno</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Alumno</th>
+            <th>Promedio</th>
+            <th>Gráfica</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.NombreCompleto</td>
+                <td>@item.Promedio</td>
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar"
+                             role="progressbar"
+                             style="width:@(item.Promedio * 10)%">
+                            @item.Promedio
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
